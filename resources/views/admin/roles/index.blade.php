@@ -11,13 +11,14 @@
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
 
-            @if(Session::has('success'))
-                <div class="row juctify-content-center">
+           @if (session('success'))
+               <div class="alert alert-success">
+                {{ session('success') }}
+               </div>
+           @endif
 
-                    <span class="alert alert-success">{{ Session::get('success') }}</span>
 
-                </div>
-            @endif
+
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <a href="{{ route('admin.roles.create') }}"
                     class="btn btn-success m-3 float-end mr-3">Create Role</a>
@@ -42,10 +43,10 @@
                                         <div class=" flex space-x-5">
                                             <a href="{{ route('admin.roles.edit', $role->id) }}"
                                                 class="btn btn-primary"> Edit</a>
-                                          
-                                            <form class="btn btn-danger"
-                                                action="{{ route('admin.roles.destroy',$role->id) }}"
-                                                onsubmit="return confirm('Are you sure?');">
+
+                                            <form 
+                                                action="{{ route('admin.roles.destroy', $role->id) }}"
+                                                onsubmit="return confirm('Are you sure ?');" method="POST" class="btn btn-danger">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit"> Delete </button>
@@ -64,3 +65,6 @@
         </div>
 
 </x-admin-layout>
+@section('script')
+        @include('sweetalert::alert')
+@endsection

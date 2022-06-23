@@ -6,44 +6,51 @@
     @endsection
 
     <div class="py-12 w-full">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 m-2">
-            @if(Session::has('success'))
-                <div class="row juctify-content-center">
 
-                    <span class="alert alert-success">{{ Session::get('success') }}</span>
 
+
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
+
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
                 </div>
             @endif
+
+            <h2 class="text-dark fs-1 mb-3"> User Management</h2>
+
+
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <a href="{{ route('admin.permissions.create') }}"
-                    class="btn btn-success m-3 float-end mr-3">Create Permission</a>
+
                 <table class="table m-1">
                     <thead>
                         <tr>
 
                             <th scope="col">Name</th>
-
+                            <th scope='col'>Email</th>
 
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($permissions as $permission )
+                        @foreach($users as $user )
 
 
                             <tr>
-                                <td scope="row" class="">{{ $permission ->  name }}</td>
+                                <td scope="row" class="">{{ $user -> name }}</td>
+                                <td scope="row" class="">{{ $user -> email }}</td>
                                 <td scope="row" class="">
                                     <div class=" flex justify-end">
-                                        <div class="space-x-2">
-                                            <a href="{{ route('admin.permissions.edit',$permission->id) }}"
-                                                class="btn btn-primary"> Edit</a>
+                                        <div class=" flex space-x-2">
+                                            <a href="" class="btn btn-primary"> Roles</a>
+                                            <a href="" class="btn btn-success"> Permission</a>
+
                                             <form
-                                                action="{{ route('admin.permissions.destroy',$permission->id) }}" onsubmit="return confirm('Are you sure?');"
-                                                method="POST" class="btn btn-danger">
+                                                action="{{ route('admin.users.delete', $user->id) }}"
+                                                onsubmit="return confirm('Are you sure ?');" method="POST"
+                                                class="btn btn-danger">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit">Delete</button>
-
+                                                <button type="submit"> Delete </button>
                                             </form>
                                         </div>
                                     </div>
@@ -59,3 +66,4 @@
         </div>
 
 </x-admin-layout>
+

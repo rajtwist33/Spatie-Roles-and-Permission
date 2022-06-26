@@ -16,6 +16,7 @@
 
                 </div>
             @endif
+           
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <a href="{{ route('admin.permissions.index') }}"
                     class="btn btn-success m-3  ">Permission Index

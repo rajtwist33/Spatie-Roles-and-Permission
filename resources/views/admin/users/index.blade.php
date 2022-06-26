@@ -17,7 +17,9 @@
                 </div>
             @endif
 
-            <h2 class="text-dark fs-1 mb-3"> User Management</h2>
+            <label class="text-dark fs-1 mb-3"> User Management</label><span class="fs-5 float-end"><a
+                    href="{{ route('admin.create_user') }}" class="btn btn-success">Create
+                    User</a></span>
 
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -41,8 +43,10 @@
                                 <td scope="row" class="">
                                     <div class=" flex justify-end">
                                         <div class=" flex space-x-2">
-                                            <a href="" class="btn btn-primary"> Roles</a>
-                                            <a href="" class="btn btn-success"> Permission</a>
+                                            <a href="{{ route('admin.users.show', $user->id ) }}"
+                                                class="btn btn-primary">
+                                                Show</a>
+
 
                                             <form
                                                 action="{{ route('admin.users.delete', $user->id) }}"
@@ -66,4 +70,3 @@
         </div>
 
 </x-admin-layout>
-

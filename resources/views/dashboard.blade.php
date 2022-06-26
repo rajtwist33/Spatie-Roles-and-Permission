@@ -12,13 +12,11 @@
     @endsection
     <div class="py-12">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-2">
-                <div class="p-6 bg-white border-b border-gray-200 mb-2">
+            @can('View')
+                <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg mt-2">
+                    <div class="p-6 bg-white border-b border-gray-200 mb-2">
+                        <h2 class="text-primary">View page</h2>
 
-
-                    <h2 class="text-primary">View page</h2>
-
-                    @can('View')
                         <h1>My name is Rajkumar Sadar</h1>
                         Lorem ipsum dolor sit amet consectetur, adipisicing elit. Eum aperiam culpa quod, officiis porro
                         ea quisquam neque accusantium magni libero tempora tenetur cupiditate, soluta consequuntur modi
@@ -28,10 +26,10 @@
                         quisquam rerum eveniet officia provident fuga sint eligendi nisi quas. Veniam fuga enim, ratione
                         quisquam commodi vero sed harum voluptate. Delectus maxime ex soluta aliquam ipsam! Quod animi
                         aliquam esse eos tenetur et optio alias.
-                    @endcan
-                </div>
-            </div>
 
+                    </div>
+                </div>
+            @endcan
             <!-- Create Page -->
             @can('Create')
 

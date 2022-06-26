@@ -33,8 +33,6 @@ class AddUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        // dd($user);
-
     return redirect()->route('admin.users.index')->with('success','New User Added. ');
       
       

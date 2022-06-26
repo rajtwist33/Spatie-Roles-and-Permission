@@ -41,11 +41,15 @@
                                 <td scope="row" class="">{{ $user -> name }}</td>
                                 <td scope="row" class="">{{ $user -> email }}</td>
                                 <td scope="row" class="">
+
+
+
+
                                     <div class=" flex justify-end">
                                         <div class=" flex space-x-2">
                                             <a href="{{ route('admin.users.show', $user->id ) }}"
                                                 class="btn btn-primary">
-                                                Show</a>
+                                                View Roles </a>
 
 
                                             <form
@@ -58,6 +62,7 @@
                                             </form>
                                         </div>
                                     </div>
+
                                 </td>
                             </tr>
 

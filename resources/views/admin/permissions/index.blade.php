@@ -14,6 +14,8 @@
 
                 </div>
             @endif
+
+            <label class="text-dark fs-1 mb-3"> Permissions</label>
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <a href="{{ route('admin.permissions.create') }}"
                     class="btn btn-success m-3 float-end mr-3">Create Permission</a>
@@ -38,8 +40,9 @@
                                             <a href="{{ route('admin.permissions.edit',$permission->id) }}"
                                                 class="btn btn-primary"> Edit</a>
                                             <form
-                                                action="{{ route('admin.permissions.destroy',$permission->id) }}" onsubmit="return confirm('Are you sure?');"
-                                                method="POST" class="btn btn-danger">
+                                                action="{{ route('admin.permissions.destroy',$permission->id) }}"
+                                                onsubmit="return confirm('Are you sure?');" method="POST"
+                                                class="btn btn-danger">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit">Delete</button>

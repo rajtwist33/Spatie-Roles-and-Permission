@@ -11,12 +11,13 @@
 
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 ">
 
-           @if (session('success'))
-               <div class="alert alert-success">
-                {{ session('success') }}
-               </div>
-           @endif
+            @if(session('success'))
+                <div class="alert alert-success">
+                    {{ session('success') }}
+                </div>
+            @endif
 
+            <label class="text-dark fs-1 mb-3">Roles</label>
 
 
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
@@ -44,9 +45,10 @@
                                             <a href="{{ route('admin.roles.edit', $role->id) }}"
                                                 class="btn btn-primary"> Edit</a>
 
-                                            <form 
+                                            <form
                                                 action="{{ route('admin.roles.destroy', $role->id) }}"
-                                                onsubmit="return confirm('Are you sure ?');" method="POST" class="btn btn-danger">
+                                                onsubmit="return confirm('Are you sure ?');" method="POST"
+                                                class="btn btn-danger">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit"> Delete </button>
@@ -66,5 +68,5 @@
 
 </x-admin-layout>
 @section('script')
-        @include('sweetalert::alert')
+@include('sweetalert::alert')
 @endsection
